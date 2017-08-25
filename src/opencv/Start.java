@@ -17,14 +17,35 @@ public class Start {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         ImageHelper helper = new ImageHelper();
-        helper.addImage(getImage());
+
+        /* read an image to work with from disk */
+        Mat input = Imgcodecs.imread("/home/tobias/work/computervision/input.png");
+
+        /* perform image processing on this image */
+        Mat processedImage = processImage(input);
+
+        /* add the image to the panel and show the window */
+        helper.addImage(processedImage);
 
     }
 
 
-    public static Mat getImage() {
-        Mat input = Imgcodecs.imread("/home/tobias/work/computervision/Unbenannt.png");
-//        Imgproc.cvtColor(input, input, Imgproc.COLOR_BGR2GRAY);
+    /**
+     * takes a mat and performs some image processing on it
+     * @param input the image to process
+     * @return the processed image
+     */
+    public static Mat processImage(Mat input) {
+
+        /* * * * * * * * * * * * * * * * * * * * * * * * * * * *
+         *  This is your place to start.
+         *  Do whatever you want with OpenCV here!
+         *  For example: Convert colors to gray
+         * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+        Imgproc.cvtColor(input, input, Imgproc.COLOR_BGR2GRAY);
+
+
         return input;
     }
 }
