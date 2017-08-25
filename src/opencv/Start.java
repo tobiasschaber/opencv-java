@@ -10,6 +10,9 @@ import org.opencv.imgproc.Imgproc;
  */
 public class Start {
 
+    /* change this path to an image on your disk which you want to work with */
+    public static final String imagePath = "/home/tobias/work/computervision/input.png";
+
 
     public static void main(String[] args) {
 
@@ -19,7 +22,7 @@ public class Start {
         ImageHelper helper = new ImageHelper();
 
         /* read an image to work with from disk */
-        Mat input = Imgcodecs.imread("/home/tobias/work/computervision/input.png");
+        Mat input = Imgcodecs.imread(imagePath);
 
         /* perform image processing on this image */
         Mat processedImage = processImage(input);
